@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clase7</title>
+</head>
+
+<body>
+
+    <h1 id="chiste"></h1>
+    <p id="respuesta"></p>
+    <script>
+        const endpoint = "https://api.dadjokes.io/api/random/joke"
+        // fetch(endpoint)
+        //     .then(response => response.json())
+        //     .then(data => {
+        //         const listaChistes = data.body;
+        //         const primerChiste = listaChistes[0];
+        //         const setup = primerChiste.setup;
+        //         const punchline = primerChiste.punchline;
+        //         document.getElementById("chiste").innerHTML = setup;
+        //         document.getElementById("respuesta").innerHTML = punchline;
+        //         console.log(setup, punchline);
+        //     }).catch(error => {
+        //         document.getElementById("respuesta").innerHTML = error;
+        //     })
+
+
+        async function apAsync() {
+            const response = await fetch(endpoint);
+            const data = await response.json()
+            console.log("async", data);
+            const listaChistes = data.body;
+            const primerChiste = listaChistes[0];
+            const setup = primerChiste.setup;
+            const punchline = primerChiste.punchline;
+            document.getElementById("chiste").textContent = setup;
+            document.getElementById("respuesta").textContent  = punchline;
+            console.log(setup, punchline);
+        }
+        
+        try {
+            apAsync()
+        } catch (error) {
+            document.getElementById("respuesta").innerHTML = error;
+        }
+
+
+    </script>
+
+
+
+</body>
+
+</html>
