@@ -2,52 +2,109 @@
 
  /* 1.Crea una clase llamada Punto con sus dos coordenadas X e Y.*/
 
-class Punto {
+// class Punto {
 
-    constructor(X, Y) {
-      this.X = X;
-      this.Y = Y;
-    }
+//     constructor(X, Y) {
+//       this.X = X;
+//       this.Y = Y;
+//     }
 
-    description() {
-        return `${this.cord1} ${this.cord2}`;
-    }
+//     // description() {
+//     //     return `${this.cord1} ${this.cord2}`;
+//     // }
 
-}
+// }
 
 let Cpunto = new Punto(2, 5);
-
+Cpunto.Y=6;
 console.log(Cpunto.description());
 
 /* 2. Añade un método constructor para crear puntos fácilmente. Si no se recibe una coordenada,
 su valor será cero.*/
 
-class Addpunto {
 
-    static count = 0;
+class Punto {
 
-    static increment() {
-        this.count = this.count + 1;
+constructor(X, Y) {
+    if(x ){
+        this.x = x
+    }else {
+        this.x = 0
     }
-}
-
-class Crearpuntos extends Addpunto {
-    static getCount() {
-        return this.count;
+    if(y ){
+        this.y = y
+    }else {
+        this.y = 0
     }
-}
 
-console.log(Addpunto.count);
-Addpunto.increment();
-console.log(Addpunto.count);
-console.log(Crearpuntos.getCount());
+  }
+}
 
 /* 3. Crea un método llamado ver para que al imprimir por pantalla un punto aparezca en formato
 (X,Y) */
 
-ver = new Punto(5,5);
+ver(){
+    return `("${this.x}, ${this.y}")`
+}
 
-console.log(ver);
+
+/* 4 */
+
+vector(otroPunto){
+    console.log(this)
+    console.log(otroPunto)
+    return new Punto(this.x + otroPunto.x, this.y+otroPunto.y);
+}
+
+/* 5 */
+
+distancia(otroPunto){
+    console.log(this)
+    console.log(otroPunto)
+    potencia1 = Math.pow(this.x - otroPunto.x , 2)
+    potencia1 = Math.pow(this.y - otroPunto.x , 2)
+    resultado = Math.sqrt()
+}
+
+punto = new Punto()
+console.log("punto:")
+console.log(punto.ver())
+
+punto2 = new Punto(3,3)
+console.log("punto2:")
+console.log(punto2.ver())
+
+punto3 = new Punto(3)
+console.log("punto3:")
+console.log(punto3.ver())
+
+punto4 = new Punto()
+console.log("punto4:")
+console.log(punto4.ver())
+
+
+
+// class Addpunto {
+
+//     static count = 0;
+
+//     static increment() {
+//         this.count = this.count + 1;
+//     }
+// }
+
+// class Crearpuntos extends Addpunto {
+//     static getCount() {
+//         return this.count;
+//     }
+// }
+
+// console.log(Addpunto.count);
+// Addpunto.increment();
+// console.log(Addpunto.count);
+// console.log(Crearpuntos.getCount());
+
+
 
 
 
